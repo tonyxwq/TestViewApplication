@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.rx.testviewapplication.CircleView
+        android:id="@+id/circleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:textSize="18sp"
+        app:text="hello"
+        app:circleColor="#FF7256"
+        app:arcColor="#FF6347"
+        app:textColor="#000000"
+        app:startAngle="-90"
+        app:sweepAngle="320"
+        />
+
+</LinearLayout>
