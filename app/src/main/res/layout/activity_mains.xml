@@ -7,16 +7,33 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="This is first child view" />
+        android:text="第一页" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="This is second child view" />
+        android:text="第二页" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="This is third child view" />
+        android:text="第三页" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="第四页" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="第五页" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="第六页" />
+
 
 </com.rx.testviewapplication.ScrollerLayout>

@@ -51,6 +51,8 @@ public class ScrollerLayout extends ViewGroup
      */
     private int leftBorder;
 
+    private int index;
+
     /**
      * 界面可滚动的右边界
      */
@@ -71,6 +73,7 @@ public class ScrollerLayout extends ViewGroup
     {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int childCount = getChildCount();
+        index=childCount-1;
         for (int i = 0; i < childCount; i++)
         {
             View childView = getChildAt(i);
@@ -158,9 +161,9 @@ public class ScrollerLayout extends ViewGroup
                 if ((mmp - mXMove) > 0)
                 {
                     mCurrentItem++;
-                    if (mCurrentItem > 2)
+                    if (mCurrentItem > index)
                     {
-                        mCurrentItem = 2;
+                        mCurrentItem = index;
                     }
                 } else
                 {
@@ -170,14 +173,14 @@ public class ScrollerLayout extends ViewGroup
                         mCurrentItem = 0;
                     }
                 }
-                if (mCurrentItem < 2)
+                if (mCurrentItem < index)
                 {
                     int dx = (int) (getWidth() * mCurrentItem - Math.abs(getScrollX()));
                     mScroller.startScroll(getScrollX(), 0, dx, 0);
                     invalidate();
                     flag=true;
                 }
-                if (mCurrentItem == 2)
+                if (mCurrentItem == index)
                 {
                     if (flag)
                     {
@@ -186,8 +189,6 @@ public class ScrollerLayout extends ViewGroup
                         invalidate();
                     }
                     flag = false;
-
-                    Log.d("data","=============="+flag);
                 }
                 break;
         }
