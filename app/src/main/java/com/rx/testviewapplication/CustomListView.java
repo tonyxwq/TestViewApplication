@@ -70,6 +70,7 @@ public class CustomListView extends ListView implements View.OnTouchListener,
     {
         mOnDeleteListener = listener;
     }
+
     private float starty = 0, endy = 0;
     private float startx = 0, endx = 0;
 

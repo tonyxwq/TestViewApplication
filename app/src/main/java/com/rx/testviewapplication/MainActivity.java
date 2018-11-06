@@ -2,7 +2,6 @@ package com.rx.testviewapplication;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,7 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_mains);
         //circleView = findViewById(R.id.circleview);
         // circleView.ValueAnimator(360);
-        initContentList();
+        /*initContentList();
         mCustomLv = findViewById(R.id.custom_lv);
         mCustomLv.setOnDeleteListener(new CustomListView.OnDeleteListener()
         {
@@ -37,7 +36,7 @@ public class MainActivity extends Activity
         });
 
         mAdapter = new CustomListViewAdapter(this, 0, contentList);
-        mCustomLv.setAdapter(mAdapter);
+        mCustomLv.setAdapter(mAdapter);*/
     }
 
     // 初始化内容列表
@@ -52,11 +51,11 @@ public class MainActivity extends Activity
     @Override
     public void onBackPressed()
     {
-        if (mCustomLv.isDeleteShown())
+       /* if (mCustomLv.isDeleteShown())
         {
             mCustomLv.hideDelete();
             return;
-        }
+        }*/
         super.onBackPressed();
     }
 
