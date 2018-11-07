@@ -73,13 +73,15 @@ public class ScrollerLayout extends ViewGroup
     {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int childCount = getChildCount();
-        index=childCount-1;
-        for (int i = 0; i < childCount; i++)
+        index = childCount - 1;
+       /* for (int i = 0; i < childCount; i++)
         {
             View childView = getChildAt(i);
             // 为ScrollerLayout中的每一个子控件测量大小
             measureChild(childView, widthMeasureSpec, heightMeasureSpec);
-        }
+        }*/
+
+        measureChildren(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
@@ -129,7 +131,6 @@ public class ScrollerLayout extends ViewGroup
 
     private int mCurrentItem = 0;
     private boolean flag = true;
-    private int temp = 0;
 
     @Override
     public boolean onTouchEvent(MotionEvent event)
@@ -139,18 +140,13 @@ public class ScrollerLayout extends ViewGroup
             case MotionEvent.ACTION_MOVE:
                 mXMove = event.getRawX();
                 int scrolledX = (int) (mXLastMove - mXMove);
-                //Log.d("data","=======getWidth()========="+getWidth());
-                //Log.d("data","=======rightBorder========="+rightBorder);
-                if (getScrollX() + scrolledX < leftBorder)
+                //Log.d("data","=======scrolledX========="+scrolledX);
+                //Log.d("data","=======getScrollX()========="+getScrollX());
+                if (getScrollX() > leftBorder && getScrollX() + scrolledX + getWidth() < rightBorder)
                 {
-                    scrollTo(leftBorder, 0);
-                    return true;
-                } else if (getScrollX() + getWidth() + scrolledX > rightBorder)
-                {
-                    scrollTo(rightBorder - getWidth(), 0);
-                    return true;
+                    scrollBy(scrolledX, 0);
                 }
-                scrollBy(scrolledX, 0);
+
                 mXLastMove = mXMove;
                 break;
             case MotionEvent.ACTION_UP:
@@ -178,7 +174,7 @@ public class ScrollerLayout extends ViewGroup
                     int dx = (int) (getWidth() * mCurrentItem - Math.abs(getScrollX()));
                     mScroller.startScroll(getScrollX(), 0, dx, 0);
                     invalidate();
-                    flag=true;
+                    flag = true;
                 }
                 if (mCurrentItem == index)
                 {
